@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Waste Sorter</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>♻️ AI Waste Sorter</h1>
+
+    <!-- Mode buttons -->
+    <div class="button-group">
+      <button id="cameraBtn">Camera Mode</button>
+      <button id="uploadBtn" class="active">Upload Mode</button>
+    </div>
+
+    <!-- Camera section -->
+    <section id="cameraSection" style="display:none;">
+      <div id="cameraCanvasContainer" class="media-box">
+        <div class="placeholder">Starting camera…</div>
+      </div>
+      <button id="captureBtn" class="capture-btn" disabled>📸 Capture</button>
+      <div id="cameraPredictions" class="predictions"></div>
+    </section>
+
+    <!-- Upload section -->
+    <section id="uploadSection">
+      <label for="fileInput" class="upload-label">📁 Click or Drag to Upload</label>
+      <input type="file" id="fileInput" accept="image/*" hidden />
+      <div id="uploadPreviewContainer" class="media-box">
+        <div id="uploadPlaceholder" class="placeholder">No image selected</div>
+        <img id="uploadedImage" alt="Uploaded preview" style="display:none; max-width:100%; height:auto;" />
+      </div>
+      <div id="uploadPredictions" class="predictions"></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
